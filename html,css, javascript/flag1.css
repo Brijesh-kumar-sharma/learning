@@ -1,0 +1,29 @@
+body { 
+background: #0e0220;
+ }
+#flag
+ { 
+     position:absolute;
+      top:65%;
+      left:50% 
+}
+div{
+        text-align: center;
+        font-size: 6rem;
+        height:100vh;
+        line-height: 40vh;
+        color: #fcedd8;
+        background: #0e0220;
+        font-family: 'Niconne', cursive;
+        font-weight: 800;
+        text-shadow: 5px 5px 0px #f53518, 
+                    10px 10px 0px #fcad04, 
+                    15px 15px 0px #16f0bd, 
+                    20px 20px 0px #2f89fc, 
+                    25px 25px 0px #010d13, 
+                    30px 30px 0px #ff0cc2, 
+                    35px 35px 0px #fd4404, 
+                    40px 40px 0px #ffcc00, 
+                    45px 45px 0px #0fe70f;
+    }
+        

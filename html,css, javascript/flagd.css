@@ -1,0 +1,42 @@
+
+
+body {
+  /* Grey Background so that white stripe doesn't bleed into background  */
+  background: black;
+  padding-top: 100;
+  
+}
+ 
+.container {
+
+  display: flex;
+  justify-content: center;
+  margin-top: 250px;
+  
+}
+
+.stripe {
+  width: 300px;
+  height: 60px;
+}
+
+#saffron {
+  background: #FF9933;
+}
+
+#white {
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#green {
+  background: #138808;
+}
+
+.ashok_chakra {
+  height: 60px;
+  width: 60px;
+}
+
+

@@ -1,0 +1,131 @@
+package com.example.timetable;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+public class sendTimeTable extends AppCompatActivity {
+    private EditText GetClassName,GetTeacherName,GetTime,GetDays,GetSubjectName;
+    private Button SaveTimeTable;
+    private FirebaseFirestore db ;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_send_time_table);
+        db=FirebaseFirestore.getInstance();
+        Intent intent=getIntent();
+        final String text=intent.getStringExtra(TeacherActivity.EXTRA_TEXT);
+
+
+        GetClassName=findViewById(R.id.getClassName);
+        GetTeacherName=findViewById(R.id.getTeacherName);
+        GetDays=findViewById(R.id.getDays);
+        GetTime=findViewById(R.id.getTime);
+        GetSubjectName=findViewById(R.id.getSubjectName);
+        SaveTimeTable=findViewById(R.id.saveTimeTable);
+
+
+        SaveTimeTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String clas=GetClassName.getText().toString().trim();
+                String teacher=GetTeacherName.getText().toString().trim();
+                String days=GetDays.getText().toString().trim();
+                String time=GetTime.getText().toString().trim();
+                String subject=GetSubjectName.getText().toString().trim();
+                String Uniqueno= text+"1";
+
+                if(!validateInputs(clas,teacher,days,time,subject))
+                {
+                    CollectionReference dbtimetable=db.collection("timetable");
+                    timetable timetable=new timetable(
+                            clas,
+                            teacher,
+                            days,
+                            time,
+                            subject,
+                            Uniqueno
+
+
+                    );
+
+                    dbtimetable.add(timetable)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Toast.makeText(sendTimeTable.this,"timetableAdded",Toast.LENGTH_LONG).show();
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(sendTimeTable.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+
+
+
+
+
+
+
+
+
+                }
+
+
+            }
+        });
+
+
+    }
+
+    private boolean validateInputs(String clas, String teacher,String days,String time,String subject) {
+
+        if (clas.isEmpty()) {
+            GetClassName.setError("Class required");
+            GetClassName.requestFocus();
+            return true;
+        }
+        if (subject.isEmpty()) {
+            GetSubjectName.setError("Subject required");
+            GetSubjectName.requestFocus();
+            return true;
+        }
+        if (days.isEmpty()) {
+            GetDays.setError("Day required");
+            GetDays.requestFocus();
+            return true;
+        }
+        if (teacher.isEmpty()) {
+            GetTeacherName.setError("Teacher Name required");
+            GetTeacherName.requestFocus();
+            return true;
+        }
+        if (time.isEmpty()) {
+            GetTime.setError("Time required");
+            GetTime.requestFocus();
+            return true;
+        }
+        return false;
+
+    }
+}

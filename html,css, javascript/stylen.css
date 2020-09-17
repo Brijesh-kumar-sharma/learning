@@ -1,0 +1,38 @@
+body {
+  align-items: center;
+  background-color: #383e56;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.circle {
+  
+  box-shadow: 
+    8px 8px 10px 0 #151722,
+    -8px -8px 10px 0 #25283b;
+
+inset: 8px 8px 10px #151722,
+      -8px -8px 10px #25283b;
+
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+
+  animation: wave 2s ease-in-out infinite;
+}
+
+@keyframes wave{
+from {
+transform:scale(0);
+opacity: 1;
+filter:blur(0.2px)
+}
+to 
+{
+  transform:scale(2);
+  opacity: 0;
+  filter:blur(2px);
+
+}
+}

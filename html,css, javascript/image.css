@@ -1,0 +1,9 @@
+body{
+    padding-top: 10vh;
+    background: rgb(0, 0, 0);
+}
+.carousel-inner {
+    border-radius: 25px;
+    
+    overflow: hidden;
+}

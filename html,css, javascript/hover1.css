@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html,
+  css {
+    width: 100px;
+    height: 40px;
+  }
+  
+  .position {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 23%;
+  }
+  
+  #workarea {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #06022e;
+    font-family: Raleway;
+  }
+  
+  
+  
+  .spot {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    top: 0;
+    left: 0;
+  }
+  
+  
+  .svg-wrapper {
+    margin-top: 0;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 3px;
+    margin-left: 5px;
+    margin-right: 5px
+  }
+  
+  #shape {
+    stroke-width: 6px;
+    stroke: #05a3ff;
+    stroke-dasharray: 85 400;
+    stroke-dashoffset: -220;
+    transition: 1s all ease;
+  }
+
+  
+  #text {
+    margin-top: -35px;
+    text-align: center;
+  }
+  
+  #text a {
+    color: white;
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 1.1em;
+  }
+
+  
+  .svg-wrapper:hover #shape {
+    stroke-dasharray: 50 0;
+    stroke-width: 3px;
+    stroke-dashoffset: 0;
+    stroke: #ffc506;
+  }

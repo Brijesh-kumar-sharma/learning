@@ -1,0 +1,43 @@
+package com.example.timetable;
+
+public class timetable {
+    private String classname,teachername,day,time,subjectname,unique;
+
+    public timetable()
+    {
+
+    }
+
+    public timetable(String classname, String teachername, String day, String time, String subjectname, String unique) {
+        this.classname = classname;
+        this.teachername = teachername;
+        this.day = day;
+        this.time = time;
+        this.subjectname = subjectname;
+        this.unique = unique;
+    }
+
+    public String getClassname() {
+        return classname;
+    }
+
+    public String getTeachername() {
+        return teachername;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getSubjectname() {
+        return subjectname;
+    }
+
+    public String getUnique() {
+        return unique;
+    }
+}

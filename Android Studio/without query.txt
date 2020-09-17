@@ -1,0 +1,81 @@
+package com.example.timetable;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class viewTimeTable extends AppCompatActivity {
+
+
+
+    private RecyclerView RecyclerViewTimeTable;
+    private  viewTimeTableAdapter ViewTimeTableAdapter;
+    private List<timetable> timetableArrayList;
+    private FirebaseFirestore db;
+    public viewTimeTable() {
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_view_time_table);
+        RecyclerViewTimeTable=findViewById(R.id.recyclerViewTimeTable);
+        RecyclerViewTimeTable.setHasFixedSize(true);
+        RecyclerViewTimeTable.setLayoutManager(new LinearLayoutManager(this));
+
+        timetableArrayList = new ArrayList<>();
+        ViewTimeTableAdapter = new viewTimeTableAdapter(this,timetableArrayList);
+        RecyclerViewTimeTable.setAdapter(ViewTimeTableAdapter);
+
+        db=FirebaseFirestore.getInstance();
+        db.collection("timetable").get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
+
+                        if(!queryDocumentSnapshots.isEmpty())
+                        {
+                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                            for(DocumentSnapshot d: list )
+                            {
+                                timetable timetable =d.toObject(timetable.class);
+                                timetableArrayList.add(timetable);
+
+
+
+                            }
+                            ViewTimeTableAdapter.notifyDataSetChanged();
+                        }
+
+
+
+
+
+
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
+    }
+}

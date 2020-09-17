@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_marginTop="300sp"
+        android:textSize="30sp"
+        android:id="@+id/getDateAndTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date And Time Displayed Here"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:layout_below="@+id/getDateAndTime"
+        android:id="@+id/btnGetDateAndTime"
+        android:text="Get Date And Time">
+
+    </Button>
+
+</RelativeLayout>

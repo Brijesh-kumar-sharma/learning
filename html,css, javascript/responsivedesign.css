@@ -1,0 +1,22 @@
+body{
+
+padding-top: 25vh;
+background:linear-gradient(rgb(232, 9, 240),rgb(6, 41, 241));
+
+
+}
+
+
+
+form{
+
+background: rgb(226, 224, 224);
+
+}
+.form-container{
+
+padding: 30px;
+border-radius: 10px;
+box-shadow: 0px 0px 10px 0px #000;
+
+}

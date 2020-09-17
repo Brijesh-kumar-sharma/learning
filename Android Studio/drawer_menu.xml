@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+    <item android:title="Quick Links">
+        <menu>
+    <group android:checkableBehavior="single" >
+        <item
+            android:id="@+id/nav_message"
+            android:icon="@drawable/ic_baseline_message_24"
+            android:title="Message" />
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/ic_baseline_chat_24"
+            android:title="ChatBot" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="Profile" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_lock_black_24dp"
+            android:title="Logout" />
+    </group>
+        </menu>
+    </item>
+    <item android:title="Important Numbers">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/womenHelplineNumber"
+                    android:icon="@drawable/ic_baseline_call_24"
+                    android:title="Women HelpLine Number">
+
+                </item>
+                <item
+                    android:id="@+id/policeFaridabad"
+                    android:icon="@drawable/ic_baseline_call_24"
+                    android:title="Police"></item>
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_baseline_share_24"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_send_black_24dp"
+                android:title="Send" />
+        </menu>
+    </item>
+</menu>

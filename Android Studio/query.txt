@@ -1,0 +1,181 @@
+/*package com.example.clouddata2;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProductsActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private ProductsAdapter adapter;
+    private List<Product> productList;
+    private ProgressBar progressBar;
+
+
+    private FirebaseFirestore db;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_products);
+
+        progressBar = findViewById(R.id.progressbar);
+
+        recyclerView = findViewById(R.id.recyclerview_products);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        productList = new ArrayList<>();
+        adapter = new ProductsAdapter(this, productList);
+
+        recyclerView.setAdapter(adapter);
+
+
+        db = FirebaseFirestore.getInstance();
+
+
+      CollectionReference  collectionReference=db.collection("products");
+      Query query=collectionReference.whereEqualTo("area","dabua");
+
+      query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+          @Override
+          public void onComplete(@NonNull Task<QuerySnapshot> task) {
+              if(task.isSuccessful()){
+                  progressBar.setVisibility(View.GONE);
+                  for(QueryDocumentSnapshot document: task.getResult()){
+                      Product product=document.toObject(Product.class);
+                      productList.add(product);
+                  }
+                  adapter.notifyDataSetChanged();
+              }
+              else
+              {
+                  Toast.makeText(ProductsActivity.this,"failed",Toast.LENGTH_SHORT).show();
+              }
+          }
+      });
+                query.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
+                        progressBar.setVisibility(View.GONE);
+
+                        if (!queryDocumentSnapshots.isEmpty()) {
+
+                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+
+                            for (DocumentSnapshot d : list) {
+
+                                Product p = d.toObject(Product.class);
+                                p.setId(d.getId());
+                                productList.add(p);
+
+                            }
+
+                            adapter.notifyDataSetChanged();
+
+                        }
+
+
+                    }
+                });
+
+    }
+}*/
+package com.example.clouddata2;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProductsActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private ProductsAdapter adapter;
+    private List<Product> productList;
+    private ProgressBar progressBar;
+
+
+    private FirebaseFirestore db;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_products);
+
+        progressBar = findViewById(R.id.progressbar);
+
+        recyclerView = findViewById(R.id.recyclerview_products);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        productList = new ArrayList<>();
+        adapter = new ProductsAdapter(this, productList);
+
+        recyclerView.setAdapter(adapter);
+
+
+        db = FirebaseFirestore.getInstance();
+
+
+        db.collection("products").get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
+                        progressBar.setVisibility(View.GONE);
+
+                        if (!queryDocumentSnapshots.isEmpty()) {
+
+                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+
+                            for (DocumentSnapshot d : list) {
+
+                                Product p = d.toObject(Product.class);
+                                p.setId(d.getId());
+                                productList.add(p);
+
+                            }
+
+                            adapter.notifyDataSetChanged();
+
+                        }
+
+
+                    }
+                });
+
+    }
+}
+
