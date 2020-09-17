@@ -1,0 +1,167 @@
+/* make changes in bgimage if you want to change background and remove lin no. 7 if you want to remove parallex effect*/
+
+.bgimage{
+    
+    background-image: url("bg.png");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    width: 100%;
+    height: 660px;
+}
+
+.headerset{
+
+
+padding-top: 230px;
+box-sizing: border-box;
+
+
+}
+
+.ourservices{
+  padding-top: 100px;
+   
+}
+.ourservices h1
+{
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.card
+{
+    margin-top: 40px;
+}
+
+.footer{
+    padding-top: 100px;
+    height: 150px;
+}
+
+.footer h6{
+    line-height: 150px;
+}
+
+
+/* Social Media icons Edit From 53 To 136*/
+
+.icons{
+
+    position: absolute;
+    margin-top: 100px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    
+    
+    }
+    .icons li
+{
+
+list-style: none;
+margin: 0 15px;
+
+
+}
+.icons li a 
+{
+width: 50px;
+height: 50px;
+background-color: #ffff;
+text-align: center;
+line-height: 40px;
+font-size: 20px;
+margin: 0 10px;
+display: block;
+border-radius: 50%;
+position: relative;
+overflow: hidden;
+border: 3px solid #fff;
+z-index: 1;
+
+
+}
+.icons li a .icon{
+    position: relative;
+    color: #262626;
+    transition: .5s;
+    z-index: 3;
+    
+    
+    }
+    .icons li a:hover .icon
+    {
+    color: #fff;
+    transform: rotateY(360deg);
+    
+    
+    }
+    .icons li a:before{
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #f00;
+        transition: .5s;
+        z-index: 3;
+    }
+    .icons li a:hover:before{
+    
+    top: 0;
+    
+    }
+    .icons li:nth-child(1) a:before{
+    
+        background: #3b5999;
+    }
+    .icons li:nth-child(2) a:before{
+    
+        background: #55aacc;
+    }
+    .icons li:nth-child(3) a:before{
+    
+        background:linear-gradient(#f702ff,#ffa805);
+    }
+    .icons li:nth-child(4) a:before{
+    
+        background: #0077b5;
+    }
+
+/* Text Size Responsivenes Edit From Line 138  To Last*/
+   @media (min-width: 544px) {  
+    .headerset h2 {font-size:1.5rem;} 
+    .headerset h1 {
+        font-size: 30px;
+        font-weight: bold;
+    }
+    /*1rem = 16px*/
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+    .headerset h2{font-size:2rem;} 
+    .headerset h1 {
+        font-size: 40px;
+        font-weight: bold;
+    }
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .headerset h2  {font-size:2.5rem;}
+    .headerset h1 {
+        font-size: 50px;
+        font-weight: bold;
+    } 
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+    .headerset h2{font-size:3rem;}
+    .headerset h1 {
+        font-size: 70px;
+        font-weight: bold;
+    }   
+}
