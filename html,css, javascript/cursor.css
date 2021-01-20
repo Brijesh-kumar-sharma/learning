@@ -1,0 +1,40 @@
+body{
+    background: black;
+}
+
+.container{
+    width: 250px;
+    display: grid;
+    margin-top: 100px;
+    margin-left: 550px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.item
+{
+    background-color: #ff1100;
+    color: white;
+    font-style: bold;
+    font-weight: 300;
+    font-size: 14px;
+    padding: 40px 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+.allScroll{ cursor: all-scroll;
+}
+.pointer{ cursor: pointer;
+}
+.notAllowed{ cursor: not-allowed;
+}
+.scResize{ cursor: se-resize;
+}
+.progress{ cursor: progress;
+}
+.zoomIn{ cursor: zoom-in;
+}
+.zoomOut{ cursor: zoom-out;
+}
+.cell{ cursor: cell;
+}

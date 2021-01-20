@@ -1,0 +1,12 @@
+Hello Everyone 
+In this Video I create a Simple Todo List Using Html , CSS , & JavaScript With Amazing Hover Effects and Responsive Design.
+
+Icons Used In this projects
+
+Trash :- https://fontawesome.com/icons/trash?style=solid
+Plus :- https://fontawesome.com/icons/plus?style=solid
+
+All Icons Credit Goes To Website
+
+
+Thank You
